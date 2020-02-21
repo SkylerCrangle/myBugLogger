@@ -19,6 +19,10 @@ class NotesService {
   async findNotesByBugId(id) {
     return await _repository.find({ bug: id })
   }
+
+  async findByIdandDelete(id) {
+    return await _repository.findByIdAndDelete(id)
+  }
 }
 
 const notesService = new NotesService();

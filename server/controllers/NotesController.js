@@ -8,7 +8,8 @@ export default class NotesController {
       //NOTE  each route gets registered as a .get, .post, .put, or .delete, the first parameter of each method is a string to be concatinated onto the base url registered with the route in main. The second parameter is the method that will be run when this route is hit.
       .get("", this.getAll)//DONE
       .get("/:id", this.getNotesById)//DONE
-      .post("", this.makeNote); //DONE adds a new note to the bug
+      .post("", this.makeNote) //DONE adds a new note to the bug
+      .delete("/:id", this.deleteNote)
   }
 
   async getAll(req, res, next) {
@@ -36,6 +37,15 @@ export default class NotesController {
 
     }
     catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteNote(req, res, next) {
+    try {
+      await notesService.findByIdandDelete(req.params.id);
+      res.send("delorted");
+    } catch (error) {
       next(error);
     }
   }
