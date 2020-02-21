@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 //Bugs have last modified date
 //Bugs can be created
@@ -11,11 +12,12 @@ const Schema = mongoose.Schema;
 
 var bug = new Schema(
   {
-    closed: { type: Boolean, required: true },
-    description: { type: String, required: true },
-    title: { type: String, required: true },
-    reportedBy: { type: String, required: true }, //The provided name for who reported the bug
-    closedDate: { type: Date, required: true }
+    closed: Boolean,
+    description: String,
+    title: String,
+    reportedBy: String, //The provided name for who reported the bug
+    closedDate: Date,
+    id: ObjectId
   }, { timestamps: true, toJSON: { virtuals: true } }
 );
 
