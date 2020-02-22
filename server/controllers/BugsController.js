@@ -46,15 +46,6 @@ export default class BugsController {
   }
 
 
-  async getCommentsWritenBy(req, res, next) {
-    try {
-      let data = await notesService.getEverythingWritenBy(req.params.author);
-      res.send(data);
-    } catch (error) {
-      next(error);
-    }
-  }
-
   async create(req, res, next) {
     try {
       let data = await bugsService.create(req.body);

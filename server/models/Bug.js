@@ -12,7 +12,12 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var bug = new Schema(
   {
-    closed: Boolean,
+
+    // "sort": {
+    //   "type": "string",
+    //   "default": "id"
+    // }
+    closed: { type: Boolean, default: false },
     description: String,
     title: String,
     reportedBy: String, //The provided name for who reported the bug
