@@ -27,3 +27,5 @@ class NotesService {
 
 const notesService = new NotesService();
 export default notesService;
+
+//checks out there are 5 total functions here

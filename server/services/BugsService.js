@@ -31,6 +31,7 @@ class BugsService {
   }
 }
 
+//checks out there are 5 functions here
 
 const bugsService = new BugsService();
 export default bugsService;

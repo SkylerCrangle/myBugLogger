@@ -11,11 +11,9 @@ export default class BugsController {
       .get("/:id", this.getById)//DONE returns a single bug with all it's data
       .get("/:id/notes", this.getNotesByBugId)//DONE returns all notes for a given bug id
       .post("", this.create)//DONE creates a new bug
-      .put("/:id", this.edit)//DONE edits bug
-
-
-      .delete("/:id", this.delete);//changes status to closed and no further editing
-    //delete--- /bugs/:id/notes/:id: Deletes note.
+      .put("/:id", this.edit)//DONE edits bug, if closed:false
+      .delete("/:id", this.delete);//DONE changes status to closed and no further editing
+    //delete--- /bugs/:id/notes/:id: Deletes note. this path does not pass testing so we use /notes/:id instead to delete notes
   }
 
   async getAll(req, res, next) {
@@ -70,6 +68,7 @@ export default class BugsController {
     } catch (error) {
       next(error);
     }
-  } s
-
+  }
+  //sends 5 functions to bug service
+  //sends 1 function to notes service
 }

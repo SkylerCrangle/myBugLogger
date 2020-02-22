@@ -9,7 +9,7 @@ export default class NotesController {
       .get("", this.getAll)//DONE
       .get("/:id", this.getNotesById)//DONE
       .post("", this.makeNote) //DONE adds a new note to the bug
-      .delete("/:id", this.deleteNote)
+      .delete("/:id", this.deleteNote)//DONE
   }
 
   async getAll(req, res, next) {
@@ -49,4 +49,6 @@ export default class NotesController {
       next(error);
     }
   }
+
+  //sends 4 functions to the notes service
 }
