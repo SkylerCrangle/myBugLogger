@@ -74,8 +74,8 @@ export default class BugsController {
   }
   async delete(req, res, next) {
     try {
-      await bugsService.delete(req.params.id);
-      res.send("Delorted");
+      let data = await bugsService.delete(req.params.id);
+      res.send("closed, no further editing");
     } catch (error) {
       next(error);
     }

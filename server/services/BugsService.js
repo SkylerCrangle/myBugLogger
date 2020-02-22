@@ -18,11 +18,15 @@ class BugsService {
   }
 
   async update(id, update) {
-    return await _repository.findByIdAndUpdate(id, update, { new: true })
-
+    let data = await _repository.findById(id)
+    if (data.closed) {
+      return "this bug is closed"
+    } else {
+      return await _repository.findByIdAndUpdate(id, update, { new: true })
+    }
   }
   async delete(id) {
-    return await _repository.findByIdAndDelete(id);
+    return await _repository.findByIdAndUpdate(id, { closed: true }, { new: true })
 
   }
 }
