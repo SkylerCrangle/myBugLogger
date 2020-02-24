@@ -12,10 +12,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var bug = new Schema(
   {
-    closed: { type: Boolean, default: false },
-    description: String,
-    title: String,
-    reportedBy: String, //The provided name for who reported the bug
+    closed: { type: Boolean, required: true, default: false },
+    description: { type: String, required: true },
+    title: { type: String, required: true },
+    reportedBy: { type: String, required: true, default: "Anonymous" }, //The provided name for who reported the bug
     closedDate: Date,
     id: ObjectId
   }, { timestamps: true, toJSON: { virtuals: true } }
